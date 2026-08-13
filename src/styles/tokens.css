@@ -1,0 +1,92 @@
+
+:root {
+  /* COLOR */
+
+  /* Ink — grayscale text & content */
+  --color-ink-900: #111827; /* primary text */
+  --color-ink-700: #374151; /* secondary text */
+  --color-ink-500: #6b7280; /* muted text, placeholders */
+  --color-ink-300: #d1d5db; /* borders, dividers */
+  --color-ink-100: #f3f4f6; /* subtle surface fill */
+  --color-ink-0: #ffffff; /* base surface */
+
+  /* Slate — deep neutral used for header/footer bands */
+  --color-slate-900: #0f1b2d;
+  --color-slate-800: #16233a;
+  --color-slate-600: #3a4a63;
+
+  /* Accent — a single corporate blue for action & focus, used sparingly */
+  --color-accent-700: #1e46b8; /* hover / pressed */
+  --color-accent-600: #2c5fe0; /* default action color */
+  --color-accent-100: #e7edfc; /* accent tint (chips, focus halo) */
+
+  /* Semantic aliases — reference these in components, not raw colors */
+  --color-bg-page: var(--color-ink-100);
+  --color-bg-surface: var(--color-ink-0);
+  --color-bg-inverse: var(--color-slate-900);
+  --color-text-primary: var(--color-ink-900);
+  --color-text-secondary: var(--color-ink-700);
+  --color-text-muted: var(--color-ink-500);
+  --color-text-inverse: var(--color-ink-0);
+  --color-text-inverse-muted: #a9b4c6;
+  --color-border-default: var(--color-ink-300);
+  --color-border-inverse: var(--color-slate-600);
+  --color-action-default: var(--color-accent-600);
+  --color-action-hover: var(--color-accent-700);
+  --color-action-tint: var(--color-accent-100);
+  --color-focus-ring: var(--color-accent-600);
+
+  /* ------------------------------------------------------------- */
+  /* SPACING — micro step of 8px, primary rhythm in 16px/32px steps */
+  /* ------------------------------------------------------------- */
+  --space-half: 8px; /* sanctioned micro-exception: icon/text gaps, hairlines */
+  --space-1: 16px;
+  --space-2: 32px;
+  --space-3: 48px;
+  --space-4: 64px;
+  --space-5: 96px;
+  --space-6: 128px;
+
+  /* LAYOUT                                                         */
+
+  --layout-max-width: 720px;
+  --layout-header-height: 96px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --border-width: 1px;
+  --shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.06);
+  --shadow-md: 0 4px 16px rgba(17, 24, 39, 0.08);
+
+  /* TYPOGRAPHY                                                     */
+  --font-display: 'Fraunces', 'Iowan Old Style', 'Georgia', serif;
+  --font-body: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  /* Scale: xs -> 3xl, size / line-height paired per step */
+  --text-xs-size: 12px;
+  --text-xs-line: 16px;
+  --text-sm-size: 14px;
+  --text-sm-line: 20px;
+  --text-base-size: 16px;
+  --text-base-line: 24px;
+  --text-md-size: 18px;
+  --text-md-line: 28px;
+  --text-lg-size: 22px;
+  --text-lg-line: 30px;
+  --text-xl-size: 28px;
+  --text-xl-line: 36px;
+  --text-2xl-size: 36px;
+  --text-2xl-line: 44px;
+  --text-3xl-size: 48px;
+  --text-3xl-line: 56px;
+
+  /* ------------------------------------------------------------- */
+  /* MOTION                                                         */
+  /* ------------------------------------------------------------- */
+  --transition-fast: 120ms ease;
+  --transition-default: 200ms ease;
+}

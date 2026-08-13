@@ -1,0 +1,34 @@
+.page-intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-half);
+  margin-bottom: var(--space-3);
+}
+
+.page-intro__eyebrow {
+  color: var(--color-text-muted);
+}
+
+.page-intro__title {
+  color: var(--color-text-primary);
+}
+
+.page-intro__subtitle {
+  color: var(--color-text-secondary);
+  max-width: 46ch;
+}
+
+.form-placeholder {
+  background-color: var(--color-bg-surface);
+  border: var(--border-width) dashed var(--color-border-default);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-4) var(--space-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-half);
+  color: var(--color-text-muted);
+}
