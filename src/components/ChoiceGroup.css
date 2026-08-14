@@ -1,0 +1,55 @@
+.choice-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-half);
+}
+
+.choice-group__label {
+  color: var(--color-text-secondary);
+  font-weight: var(--weight-medium);
+}
+
+.choice-group__options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-half);
+}
+
+.choice-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: var(--border-width) solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-surface);
+  padding: var(--space-1);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.choice-card:has(.choice-card__input:checked) {
+  border-color: var(--color-action-default);
+  box-shadow: 0 0 0 1px var(--color-action-default);
+}
+
+.choice-card:has(.choice-card__input:focus-visible) {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.choice-card__input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.choice-card__label {
+  color: var(--color-text-primary);
+  font-weight: var(--weight-medium);
+}
+
+.choice-card__help {
+  color: var(--color-text-muted);
+}

@@ -17,18 +17,3 @@
   color: var(--color-text-secondary);
   max-width: 46ch;
 }
-
-.form-placeholder {
-  background-color: var(--color-bg-surface);
-  border: var(--border-width) dashed var(--color-border-default);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  padding: var(--space-4) var(--space-2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: var(--space-half);
-  color: var(--color-text-muted);
-}

@@ -1,6 +1,5 @@
 @import './tokens.css';
 
-
 *,
 *::before,
 *::after {
@@ -39,9 +38,7 @@ img {
   display: block;
 }
 
-/* ------------------------------------------------------------- */
 /* TYPE UTILITIES — reference the scale, never a raw px value      */
-/* ------------------------------------------------------------- */
 .text-display-lg {
   font-family: var(--font-display);
   font-weight: var(--weight-medium);
@@ -95,9 +92,7 @@ img {
   text-transform: uppercase;
 }
 
-/* ------------------------------------------------------------- */
 /* ACCESSIBILITY BASELINE                                          */
-/* ------------------------------------------------------------- */
 a,
 button,
 input,

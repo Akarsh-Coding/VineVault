@@ -1,6 +1,6 @@
 
 :root {
-  /* COLOR */
+  /* COLOR                                                          */
 
   /* Ink — grayscale text & content */
   --color-ink-900: #111827; /* primary text */
@@ -48,7 +48,6 @@
   --space-6: 128px;
 
   /* LAYOUT                                                         */
-
   --layout-max-width: 720px;
   --layout-header-height: 96px;
   --radius-sm: 4px;
@@ -84,9 +83,7 @@
   --text-3xl-size: 48px;
   --text-3xl-line: 56px;
 
-  /* ------------------------------------------------------------- */
   /* MOTION                                                         */
-  /* ------------------------------------------------------------- */
   --transition-fast: 120ms ease;
   --transition-default: 200ms ease;
 }

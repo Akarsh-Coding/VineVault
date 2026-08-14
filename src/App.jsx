@@ -1,4 +1,5 @@
 import Layout from './components/Layout'
+import MembershipForm from './components/MembershipForm'
 import './App.css'
 
 function App() {
@@ -12,10 +13,7 @@ function App() {
         </p>
       </div>
 
-      <div className="form-placeholder" role="status">
-        <span className="text-body-sm">Form fields land in the next step.</span>
-        <span className="text-caption"></span>
-      </div>
+      <MembershipForm />
     </Layout>
   )
 }
