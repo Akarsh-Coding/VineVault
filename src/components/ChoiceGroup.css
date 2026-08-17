@@ -38,6 +38,19 @@
   outline-offset: 2px;
 }
 
+.choice-group--error .choice-card {
+  border-color: var(--color-error-border);
+}
+
+.choice-group--error .choice-card:has(.choice-card__input:checked) {
+  border-color: var(--color-action-default);
+  box-shadow: 0 0 0 1px var(--color-action-default);
+}
+
+.choice-group__error {
+  color: var(--color-error-text);
+}
+
 .choice-card__input {
   position: absolute;
   opacity: 0;

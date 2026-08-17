@@ -2,7 +2,7 @@ import ChoiceGroup from '../ChoiceGroup'
 import FormField from '../FormField'
 import { TIER_OPTIONS, FREQUENCY_OPTIONS, WINE_PREFERENCE_OPTIONS } from '../../data/preferenceOptions'
 
-function MembershipPreferencesStep({ data, onFieldChange }) {
+function MembershipPreferencesStep({ data, errors, onFieldChange }) {
   return (
     <div className="step">
       <ChoiceGroup
@@ -11,6 +11,7 @@ function MembershipPreferencesStep({ data, onFieldChange }) {
         options={TIER_OPTIONS}
         value={data.tier}
         onChange={(value) => onFieldChange('tier', value)}
+        error={errors.tier}
       />
       <ChoiceGroup
         legend="Shipment frequency"
@@ -18,6 +19,7 @@ function MembershipPreferencesStep({ data, onFieldChange }) {
         options={FREQUENCY_OPTIONS}
         value={data.shipmentFrequency}
         onChange={(value) => onFieldChange('shipmentFrequency', value)}
+        error={errors.shipmentFrequency}
       />
       <ChoiceGroup
         legend="Wine preference"
@@ -25,6 +27,7 @@ function MembershipPreferencesStep({ data, onFieldChange }) {
         options={WINE_PREFERENCE_OPTIONS}
         value={data.winePreference}
         onChange={(value) => onFieldChange('winePreference', value)}
+        error={errors.winePreference}
       />
       <FormField
         id="referralSource"

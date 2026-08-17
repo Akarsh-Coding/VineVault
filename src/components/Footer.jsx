@@ -7,7 +7,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer__inner">
         <span className="footer__copy">© {year} Wine Club Membership · Internal use only</span>
-        <span className="footer__meta">Demo</span>
+        <span className="footer__meta">ENG-78954</span>
       </div>
     </footer>
   )

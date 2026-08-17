@@ -32,6 +32,19 @@
   box-shadow: 0 0 0 3px var(--color-action-tint);
 }
 
+.field__control--error {
+  border-color: var(--color-error-border);
+}
+
+.field__control--error:focus-visible {
+  border-color: var(--color-error-border);
+  box-shadow: 0 0 0 3px var(--color-error-tint);
+}
+
+.field__error {
+  color: var(--color-error-text);
+}
+
 .field-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

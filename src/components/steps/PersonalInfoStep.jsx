@@ -1,6 +1,6 @@
 import FormField from '../FormField'
 
-function PersonalInfoStep({ data, onFieldChange }) {
+function PersonalInfoStep({ data, errors, onFieldChange }) {
   return (
     <div className="step">
       <FormField
@@ -10,6 +10,7 @@ function PersonalInfoStep({ data, onFieldChange }) {
         onChange={(value) => onFieldChange('fullName', value)}
         placeholder="Jordan Ellis"
         autoComplete="name"
+        error={errors.fullName}
       />
       <div className="field-row">
         <FormField
@@ -20,6 +21,7 @@ function PersonalInfoStep({ data, onFieldChange }) {
           onChange={(value) => onFieldChange('email', value)}
           placeholder="jordan@example.com"
           autoComplete="email"
+          error={errors.email}
         />
         <FormField
           id="phone"
@@ -29,6 +31,7 @@ function PersonalInfoStep({ data, onFieldChange }) {
           onChange={(value) => onFieldChange('phone', value)}
           placeholder="(555) 010-0199"
           autoComplete="tel"
+          error={errors.phone}
         />
       </div>
       <FormField
@@ -38,6 +41,7 @@ function PersonalInfoStep({ data, onFieldChange }) {
         onChange={(value) => onFieldChange('addressLine1', value)}
         placeholder="Street address"
         autoComplete="address-line1"
+        error={errors.addressLine1}
       />
       <div className="field-row">
         <FormField
@@ -46,13 +50,16 @@ function PersonalInfoStep({ data, onFieldChange }) {
           value={data.city}
           onChange={(value) => onFieldChange('city', value)}
           autoComplete="address-level2"
+          error={errors.city}
         />
         <FormField
           id="state"
           label="State"
           value={data.state}
           onChange={(value) => onFieldChange('state', value)}
+          placeholder="CA"
           autoComplete="address-level1"
+          error={errors.state}
         />
       </div>
       <FormField
@@ -61,6 +68,7 @@ function PersonalInfoStep({ data, onFieldChange }) {
         value={data.zip}
         onChange={(value) => onFieldChange('zip', value)}
         autoComplete="postal-code"
+        error={errors.zip}
       />
     </div>
   )
