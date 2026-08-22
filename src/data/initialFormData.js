@@ -6,7 +6,7 @@ export const initialFormData = {
     addressLine1: '',
     city: '',
     state: '',
-    zip: '',
+    pinCode: '',
   },
   preferences: {
     tier: '',
@@ -24,7 +24,7 @@ export const initialErrors = {
     addressLine1: '',
     city: '',
     state: '',
-    zip: '',
+    pinCode: '',
   },
   preferences: {
     tier: '',

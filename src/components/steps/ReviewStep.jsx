@@ -28,11 +28,11 @@ function ReviewStep({ formData }) {
         <div className="review-grid">
           <ReviewRow label="Full name" value={personal.fullName} />
           <ReviewRow label="Email" value={personal.email} />
-          <ReviewRow label="Phone" value={personal.phone} />
+          <ReviewRow label="Mobile number" value={personal.phone} />
           <ReviewRow label="Address" value={personal.addressLine1} />
           <ReviewRow label="City" value={personal.city} />
           <ReviewRow label="State" value={personal.state} />
-          <ReviewRow label="ZIP code" value={personal.zip} />
+          <ReviewRow label="PIN code" value={personal.pinCode} />
         </div>
       </section>
 

@@ -1,25 +1,24 @@
+import { INDIAN_STATES } from '../data/indianStates'
 
-// First + last name: letters plus internal hyphens/apostrophes per word,
-// at least two words. Rejects digits, symbols, and single-word entries.
-const NAME_PATTERN = /^[A-Za-z]+(?:['-][A-Za-z]+)*(?:\s+[A-Za-z]+(?:['-][A-Za-z]+)*)+$/
+// Full name
+const NAME_PATTERN = /^[A-Za-z]+(?:['-][A-Za-z]+)*\.?(?:(?:\s+|(?<=\.))[A-Za-z]+(?:['-][A-Za-z]+)*\.?)*$/
 
 // local@domain.tld — deliberately permissive on TLD length/shape since
-// staff will hit this on real customer addresses, strict on structure.
 const EMAIL_PATTERN = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9.-]+$/
 
-// US phone, tolerant of the formats a floor-staff tablet keyboard produces:
-// 5550100199, 555-010-0199, (555) 010-0199, +1 555 010 0199.
-const PHONE_PATTERN = /^(\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/
+// Indian mobile
+const INDIA_MOBILE_PATTERN = /^(\+91)?[6-9]\d{9}$/
 
 const ADDRESS_PATTERN = /^[A-Za-z0-9][A-Za-z0-9.,#'-]*(?:\s[A-Za-z0-9.,#'-]+)*$/
 const CITY_PATTERN = /^[A-Za-z]+(?:['-][A-Za-z]+)*\.?(?:\s+[A-Za-z]+(?:['-][A-Za-z]+)*\.?)*$/
-const STATE_PATTERN = /^[A-Za-z]{2}$/
-const ZIP_PATTERN = /^\d{5}(-\d{4})?$/
+
+// Indian PIN code: 6 digits, first digit never 0.
+const PIN_CODE_PATTERN = /^[1-9]\d{5}$/
 
 export function validateFullName(value) {
   const trimmed = value.trim()
   if (!trimmed) return 'Full name is required.'
-  if (!NAME_PATTERN.test(trimmed)) return 'Enter a first and last name, letters only.'
+  if (trimmed.length < 2 || !NAME_PATTERN.test(trimmed)) return 'Enter a valid name, letters only.'
   return ''
 }
 
@@ -31,16 +30,16 @@ export function validateEmail(value) {
 }
 
 export function validatePhone(value) {
-  const trimmed = value.trim()
-  if (!trimmed) return 'Phone number is required.'
-  if (!PHONE_PATTERN.test(trimmed)) return 'Enter a valid 10-digit phone number.'
+  const normalized = value.trim().replace(/[\s-]/g, '')
+  if (!normalized) return 'Mobile number is required.'
+  if (!INDIA_MOBILE_PATTERN.test(normalized)) return 'Enter a valid 10-digit Indian mobile number.'
   return ''
 }
 
 export function validateAddressLine1(value) {
   const trimmed = value.trim()
-  if (!trimmed) return 'Street address is required.'
-  if (trimmed.length < 4 || !ADDRESS_PATTERN.test(trimmed)) return 'Enter a valid street address.'
+  if (!trimmed) return 'Address is required.'
+  if (trimmed.length < 4 || !ADDRESS_PATTERN.test(trimmed)) return 'Enter a valid address.'
   return ''
 }
 
@@ -53,15 +52,16 @@ export function validateCity(value) {
 
 export function validateState(value) {
   const trimmed = value.trim()
-  if (!trimmed) return 'State is required.'
-  if (!STATE_PATTERN.test(trimmed)) return 'Use a 2-letter state code, e.g. CA.'
+  if (!trimmed) return 'State or union territory is required.'
+  const isKnown = INDIAN_STATES.some((state) => state.toLowerCase() === trimmed.toLowerCase())
+  if (!isKnown) return 'Select a state from the list.'
   return ''
 }
 
-export function validateZip(value) {
+export function validatePinCode(value) {
   const trimmed = value.trim()
-  if (!trimmed) return 'ZIP code is required.'
-  if (!ZIP_PATTERN.test(trimmed)) return 'Enter a valid ZIP code (12345 or 12345-6789).'
+  if (!trimmed) return 'PIN code is required.'
+  if (!PIN_CODE_PATTERN.test(trimmed)) return 'Enter a valid 6-digit PIN code.'
   return ''
 }
 

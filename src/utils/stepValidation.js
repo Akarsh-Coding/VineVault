@@ -5,7 +5,7 @@ import {
   validateAddressLine1,
   validateCity,
   validateState,
-  validateZip,
+  validatePinCode,
   validateRequiredChoice,
 } from './validators'
 
@@ -17,7 +17,7 @@ export function validatePersonalSection(data) {
     addressLine1: validateAddressLine1(data.addressLine1),
     city: validateCity(data.city),
     state: validateState(data.state),
-    zip: validateZip(data.zip),
+    pinCode: validatePinCode(data.pinCode),
   }
 }
 

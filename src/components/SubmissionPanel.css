@@ -1,0 +1,27 @@
+.submission-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-half);
+  text-align: center;
+  padding: var(--space-4) var(--space-2);
+  background-color: var(--color-bg-surface);
+  border: var(--border-width) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+}
+
+.submission-panel--error {
+  border-color: var(--color-error-border);
+}
+
+.submission-panel__hint {
+  color: var(--color-text-secondary);
+  max-width: 46ch;
+}
+
+.submission-panel__actions {
+  display: flex;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+}

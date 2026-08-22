@@ -1,12 +1,16 @@
 import { useState } from 'react'
 import { useMembershipForm } from '../hooks/useMembershipForm'
 import { FORM_STEPS } from '../data/formSteps'
+import { submitMembership } from '../utils/mockApi'
 import StepIndicator from './StepIndicator'
 import FormNav from './FormNav'
+import SubmissionPanel from './SubmissionPanel'
 import PersonalInfoStep from './steps/PersonalInfoStep'
 import MembershipPreferencesStep from './steps/MembershipPreferencesStep'
 import ReviewStep from './steps/ReviewStep'
 import './MembershipForm.css'
+
+const REVIEW_STEP_INDEX = FORM_STEPS.findIndex((step) => step.id === 'review')
 
 function renderActiveStep(stepId, formData, errors, updateField) {
   switch (stepId) {
@@ -48,35 +52,54 @@ function MembershipForm() {
     isLastStep,
   } = useMembershipForm()
 
-  // Local UI state only — actual submission (API call, telemetry ping,
-  // success/error handling) is intentionally out of scope for this part.
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  // 'idle' | 'submitting' | 'success' | 'error' — drives which panel
+  const [submissionStatus, setSubmissionStatus] = useState('idle')
+  const [submissionError, setSubmissionError] = useState('')
+  const [confirmationId, setConfirmationId] = useState('')
+
+  const [forceFailure, setForceFailure] = useState(false)
 
   const activeStep = FORM_STEPS[currentStepIndex]
 
+  const attemptSubmit = () => {
+    setSubmissionStatus('submitting')
+    setSubmissionError('')
+    submitMembership(formData, { forceFailure })
+      .then((result) => {
+        setConfirmationId(result.confirmationId)
+        setSubmissionStatus('success')
+      })
+      .catch((error) => {
+        setSubmissionError(error.message)
+        setSubmissionStatus('error')
+      })
+  }
+
   const handleSubmit = () => {
-    // Per-step gating on Next already validates each section as the user
-    // moves forward, but a user can return to an earlier step via the
-    // step indicator and edit a field without hitting Next again — so
-    // submit re-validates everything before actually submitting.
     const { isValid, firstInvalidIndex } = validateAllSections()
     if (!isValid) {
       if (firstInvalidIndex !== null) goToStep(firstInvalidIndex)
       return
     }
-    setIsSubmitted(true)
+    attemptSubmit()
   }
 
-  if (isSubmitted) {
+  const handleEditInfo = () => {
+    setSubmissionStatus('idle')
+    goToStep(REVIEW_STEP_INDEX)
+  }
+
+  if (submissionStatus !== 'idle') {
     return (
       <div className="membership-form">
-        <div className="membership-form__submitted" role="status">
-          <span className="text-display-sm">Signup captured</span>
-          <span className="text-body-sm">
-            {formData.personal.fullName || 'This member'}&rsquo;s details are ready to submit.
-            Actual submission wiring arrives in a later part.
-          </span>
-        </div>
+        <SubmissionPanel
+          status={submissionStatus}
+          errorMessage={submissionError}
+          confirmationId={confirmationId}
+          memberName={formData.personal.fullName}
+          onRetry={attemptSubmit}
+          onEditInfo={handleEditInfo}
+        />
       </div>
     )
   }
@@ -100,6 +123,19 @@ function MembershipForm() {
         onNext={goNext}
         onSubmit={handleSubmit}
       />
+
+      {import.meta.env.DEV && activeStep.id === 'review' && (
+        <div className="dev-controls">
+          <label className="dev-controls__toggle text-body-sm">
+            <input
+              type="checkbox"
+              checked={forceFailure}
+              onChange={(event) => setForceFailure(event.target.checked)}
+            />
+            Force a network failure on submit (QA testing only)
+          </label>
+        </div>
+      )}
     </div>
   )
 }

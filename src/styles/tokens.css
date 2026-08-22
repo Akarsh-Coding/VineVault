@@ -2,7 +2,7 @@
 :root {
   /* COLOR                                                          */
 
-  /* Ink — grayscale text & content */
+  /* Ink */
   --color-ink-900: #111827; /* primary text */
   --color-ink-700: #374151; /* secondary text */
   --color-ink-500: #6b7280; /* muted text, placeholders */
@@ -10,15 +10,20 @@
   --color-ink-100: #f3f4f6; /* subtle surface fill */
   --color-ink-0: #ffffff; /* base surface */
 
-  /* Slate — deep neutral used for header/footer bands */
+  /* Slate  */
   --color-slate-900: #0f1b2d;
   --color-slate-800: #16233a;
   --color-slate-600: #3a4a63;
 
-  /* Accent — a single corporate blue for action & focus, used sparingly */
-  --color-accent-700: #1e46b8; /* hover / pressed */
-  --color-accent-600: #2c5fe0; /* default action color */
-  --color-accent-100: #e7edfc; /* accent tint (chips, focus halo) */
+  /* Accent */
+  --color-accent-700: #1e46b8; 
+  --color-accent-600: #2c5fe0; 
+  --color-accent-100: #e7edfc; 
+
+  /* Danger */
+  --color-danger-700: #b42318;
+  --color-danger-600: #dc2626;
+  --color-danger-100: #fee2e2;
 
   /* Semantic aliases — reference these in components, not raw colors */
   --color-bg-page: var(--color-ink-100);
@@ -35,11 +40,12 @@
   --color-action-hover: var(--color-accent-700);
   --color-action-tint: var(--color-accent-100);
   --color-focus-ring: var(--color-accent-600);
+  --color-error-text: var(--color-danger-700);
+  --color-error-border: var(--color-danger-600);
+  --color-error-tint: var(--color-danger-100);
 
-  /* ------------------------------------------------------------- */
-  /* SPACING — micro step of 8px, primary rhythm in 16px/32px steps */
-  /* ------------------------------------------------------------- */
-  --space-half: 8px; /* sanctioned micro-exception: icon/text gaps, hairlines */
+  /* SPACING */
+  --space-half: 8px;
   --space-1: 16px;
   --space-2: 32px;
   --space-3: 48px;

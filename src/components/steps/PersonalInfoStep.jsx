@@ -1,4 +1,5 @@
 import FormField from '../FormField'
+import StateAutocomplete from '../StateAutocomplete'
 
 function PersonalInfoStep({ data, errors, onFieldChange }) {
   return (
@@ -8,7 +9,7 @@ function PersonalInfoStep({ data, errors, onFieldChange }) {
         label="Full name"
         value={data.fullName}
         onChange={(value) => onFieldChange('fullName', value)}
-        placeholder="Jordan Ellis"
+        placeholder="Ananya Iyer"
         autoComplete="name"
         error={errors.fullName}
       />
@@ -19,27 +20,27 @@ function PersonalInfoStep({ data, errors, onFieldChange }) {
           type="email"
           value={data.email}
           onChange={(value) => onFieldChange('email', value)}
-          placeholder="jordan@example.com"
+          placeholder="ananya@example.com"
           autoComplete="email"
           error={errors.email}
         />
         <FormField
           id="phone"
-          label="Phone"
+          label="Mobile number"
           type="tel"
           value={data.phone}
           onChange={(value) => onFieldChange('phone', value)}
-          placeholder="(555) 010-0199"
+          placeholder="+91 98765 43210"
           autoComplete="tel"
           error={errors.phone}
         />
       </div>
       <FormField
         id="addressLine1"
-        label="Mailing address"
+        label="Address"
         value={data.addressLine1}
         onChange={(value) => onFieldChange('addressLine1', value)}
-        placeholder="Street address"
+        placeholder="12, MG Road, Koramangala"
         autoComplete="address-line1"
         error={errors.addressLine1}
       />
@@ -49,26 +50,26 @@ function PersonalInfoStep({ data, errors, onFieldChange }) {
           label="City"
           value={data.city}
           onChange={(value) => onFieldChange('city', value)}
+          placeholder="Bengaluru"
           autoComplete="address-level2"
           error={errors.city}
         />
-        <FormField
+        <StateAutocomplete
           id="state"
-          label="State"
+          label="State / UT"
           value={data.state}
           onChange={(value) => onFieldChange('state', value)}
-          placeholder="CA"
-          autoComplete="address-level1"
           error={errors.state}
         />
       </div>
       <FormField
-        id="zip"
-        label="ZIP code"
-        value={data.zip}
-        onChange={(value) => onFieldChange('zip', value)}
+        id="pinCode"
+        label="PIN code"
+        value={data.pinCode}
+        onChange={(value) => onFieldChange('pinCode', value)}
+        placeholder="560034"
         autoComplete="postal-code"
-        error={errors.zip}
+        error={errors.pinCode}
       />
     </div>
   )

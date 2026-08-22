@@ -1,0 +1,41 @@
+.autocomplete {
+  position: relative;
+}
+
+.autocomplete__list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin: 0;
+  padding: var(--space-half) 0;
+  list-style: none;
+  background-color: var(--color-bg-surface);
+  border: var(--border-width) solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.autocomplete__option {
+  padding: var(--space-half) var(--space-1);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.autocomplete__option--highlighted,
+.autocomplete__option:hover {
+  background-color: var(--color-action-tint);
+}
+
+.autocomplete__empty {
+  padding: var(--space-half) var(--space-1);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
